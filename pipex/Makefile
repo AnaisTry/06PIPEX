@@ -6,7 +6,7 @@
 #    By: angassin <angassin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/12 12:10:21 by angassin          #+#    #+#              #
-#    Updated: 2023/05/02 18:40:16 by angassin         ###   ########.fr        #
+#    Updated: 2023/05/02 18:44:54 by angassin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ DEBUG		= -g -fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all -f
 #--------------------------------SOURCES----------------------------------------
 
 SRC			= $(PIPEX_SRC) $(UTILS_SRC)
-SRC_BONUS	= $(BONUS_SRC) $(PIPEX_SRC) $(UTILS_SRC)
+SRC_BONUS	= $(BONUS_SRC) $(UTILS_SRC)
 
 LIBFT_A 	= libft.a
 LIBFT_DIR 	= libft/

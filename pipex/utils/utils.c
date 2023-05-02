@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 10:19:32 by angassin          #+#    #+#             */
-/*   Updated: 2023/05/01 18:45:44 by angassin         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:09:17 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	infile_open(char *file)
 	fd = -1;
 	fd = open(file, O_RDONLY, 0444);
 	if (fd == -1)
-		error_exit("can't open fd_in");
+		error_exit(file);
 	return (fd);
 }
 
@@ -41,7 +41,7 @@ int	outfile_open(char *file)
 	fd = -1;
 	fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd == -1)
-		error_exit("can't open fd_out");
+		error_exit(file);
 	return (fd);
 }
 

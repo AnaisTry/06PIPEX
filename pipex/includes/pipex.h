@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:29:35 by angassin          #+#    #+#             */
-/*   Updated: 2023/05/01 15:41:00 by angassin         ###   ########.fr       */
+/*   Updated: 2023/05/02 18:39:18 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,13 @@
 # define OK 0
 # define CHILD 0
 
-/*									[Typedefs]								*/
-
-typedef struct s_pipex
-{
-	int		argc;
-	char	**argv;
-	char	**envp;
-	int		fd_in;
-	int		fd_out;
-	char	**paths;
-	char	**cmds;
-	int		*pipe_exits;
-}			t_pipex;
-
 /*									[Src]									*/
 
-int			main(int argc, char **argv, char **envp);
-void		pipex(t_pipex *elems);
+// int			main(int argc, char **argv, char **envp);
 // pipex.c
 void		create_process(char *argv, char **envp);
 void		execute(char *argv, char **envp);
-void		lastcmd_process(int argc, char *argv, char **envp, int arg_counter);
+int			lastcmd_process(int argc, char *argv, char **envp, int arg_counter);
 
 /*									[Utils]									*/
 

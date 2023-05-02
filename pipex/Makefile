@@ -6,7 +6,7 @@
 #    By: angassin <angassin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/12 12:10:21 by angassin          #+#    #+#              #
-#    Updated: 2023/05/01 17:15:28 by angassin         ###   ########.fr        #
+#    Updated: 2023/05/02 18:40:16 by angassin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,22 +25,21 @@ NAME		= pipex
 
 CC			= gcc
 
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -g
 
 DEBUG		= -g -fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-sanitize=null -fno-sanitize=alignment
 
 #--------------------------------SOURCES----------------------------------------
 
-#SRC			= $(PIPEX_SRC) $(UTILS_SRC)
-SRC	= $(BONUS_SRC) $(UTILS_SRC)
-SRC_BONUS	= $(BONUS_SRC) $(UTILS_SRC)
+SRC			= $(PIPEX_SRC) $(UTILS_SRC)
+SRC_BONUS	= $(BONUS_SRC) $(PIPEX_SRC) $(UTILS_SRC)
 
 LIBFT_A 	= libft.a
 LIBFT_DIR 	= libft/
 LIBFT		= $(addprefix libft/, $(LIBFT_A))
 
-# PIPEX		= main.c pipex.c
-# PIPEX_SRC	= $(addprefix src/, $(PIPEX))
+PIPEX		= main.c pipex.c
+PIPEX_SRC	= $(addprefix src/, $(PIPEX))
 
 UTILS		= utils.c
 UTILS_SRC	= $(addprefix utils/, $(UTILS))

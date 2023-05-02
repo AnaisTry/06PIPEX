@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 14:38:14 by angassin          #+#    #+#             */
-/*   Updated: 2023/05/01 15:46:39 by angassin         ###   ########.fr       */
+/*   Updated: 2023/05/02 18:02:58 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int	main(int argc, char **argv, char **envp)
 	while (i < argc - 2)
 		create_process(argv[i++], envp);
 	duplicate(fdout, STDOUT_FILENO, "duplication of the outfile failed");
-	lastcmd_process(argc, argv[i], envp, j);
-	return (0);
+	return (lastcmd_process(argc, argv[i], envp, j));
 }
 
+/* Checks number of args, environment variable and infile accessibility */
 static void	initial_checks(int argc, char **argv, char **envp)
 {
 	if (argc < 5)
@@ -66,10 +66,11 @@ static int	outfile_append_open(char *file)
 	fd = -1;
 	fd = open(file, O_RDWR | O_CREAT | O_APPEND, 0644);
 	if (fd == -1)
-		error_exit("can't open fd_out");
+		error_exit(file);
 	return (fd);
 }
 
+/* Creates a child process to prompt the user */
 static void	heredoc(const char *limiter)
 {
 	int			fd[2];
@@ -84,9 +85,11 @@ static void	heredoc(const char *limiter)
 	{
 		close(fd[0]);
 		read_stdin(limiter, fd[1]);
+		close(fd[1]);
 	}
 	close(fd[1]);
 	duplicate(fd[0], STDIN_FILENO, "could not read from the pipe");
+	close(fd[0]);
 }
 
 static void	read_stdin(const char *limiter, int fd)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 14:38:14 by angassin          #+#    #+#             */
-/*   Updated: 2023/05/03 10:29:31 by angassin         ###   ########.fr       */
+/*   Updated: 2023/05/03 12:46:02 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ static void	heredoc(const char *limiter)
 	close(fd[1]);
 	duplicate(fd[0], STDIN_FILENO, "could not read from the pipe");
 	close(fd[0]);
+	waitpid(pid, NULL, 0);
 }
 
 static void	read_stdin(const char *limiter, int fd)

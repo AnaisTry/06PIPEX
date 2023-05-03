@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 18:17:56 by angassin          #+#    #+#             */
-/*   Updated: 2023/05/02 17:15:26 by angassin         ###   ########.fr       */
+/*   Updated: 2023/05/03 08:28:56 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char	*command_access(char *cmd, char **paths);
 /*
 	Creates a child process : send to the pipe the output of the execution
 	of the command passed in argument.
-	Parent process : wait and then read the output of the child from the pipe.
+	Parent process : reads the output of the child from the pipe.
 	The child process has it's own copy of the parent's file's decriptors.
 */
 void	create_process(char *argv, char **envp)
@@ -43,6 +43,11 @@ void	create_process(char *argv, char **envp)
 	close(fd[0]);
 }
 
+/*
+	Executes the last command in a child process and wait for all
+	the child processes to end in the parent.
+	Returns the exit status of the last_command.
+*/
 int	lastcmd_process(int argc, char *argv, char **envp, int arg_counter)
 {
 	int	pid;

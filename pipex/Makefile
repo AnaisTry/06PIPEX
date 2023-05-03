@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: angassin <angassin@student.42.fr>          +#+  +:+       +#+         #
+#    By: angassin <angassin@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/12 12:10:21 by angassin          #+#    #+#              #
-#    Updated: 2023/05/02 18:44:54 by angassin         ###   ########.fr        #
+#    Updated: 2023/05/03 08:12:27 by angassin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,12 @@ NAME		= pipex
 
 CC			= gcc
 
-CFLAGS		= -Wall -Wextra -Werror -g
+CFLAGS		= -Wall -Wextra -Werror
 
-DEBUG		= -g -fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-sanitize=null -fno-sanitize=alignment
+DEBUG		= -g -fsanitize=address -fsanitize=undefined \
+			  -fno-sanitize-recover=all	-fsanitize=float-divide-by-zero \
+			  -fsanitize=float-cast-overflow -fno-sanitize=null \
+			  -fno-sanitize=alignment
 
 #--------------------------------SOURCES----------------------------------------
 
@@ -44,8 +47,8 @@ PIPEX_SRC	= $(addprefix src/, $(PIPEX))
 UTILS		= utils.c
 UTILS_SRC	= $(addprefix utils/, $(UTILS))
 
-BONUS		= bonus.c pipex.c
-BONUS_SRC	= $(addprefix bonus/, $(BONUS))
+BONUS		= main_bonus.c pipex.c
+BONUS_SRC	= $(addprefix src/, $(BONUS))
 
 OBJ			= $(SRC:.c=.o)
 BONUS_OBJ	= $(SRC_BONUS:.c=.o)

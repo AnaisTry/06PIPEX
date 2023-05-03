@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus.c                                            :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: angassin <angassin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 14:38:14 by angassin          #+#    #+#             */
-/*   Updated: 2023/05/02 18:02:58 by angassin         ###   ########.fr       */
+/*   Updated: 2023/05/03 10:29:31 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ static void	read_stdin(const char *limiter, int fd)
 		ft_putstr_fd("> ", STDOUT_FILENO);
 		line = get_next_line(STDIN_FILENO);
 		if (line == NULL)
-			error_exit("could not read user input");
+			exit(127);
 		if (ft_strncmp(limiter, line, ft_strlen(limiter)) == OK
 			&& ft_strlen(limiter) == (ft_strlen(line) - 1))
 		{

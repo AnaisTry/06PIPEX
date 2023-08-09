@@ -6,7 +6,7 @@
 #    By: angassin <angassin@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/12 12:10:21 by angassin          #+#    #+#              #
-#    Updated: 2023/05/03 09:18:58 by angassin         ###   ########.fr        #
+#    Updated: 2023/05/18 23:23:03 by angassin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ NAME		= pipex
 
 CC			= gcc
 
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -g
 
 DEBUG		= -g -fsanitize=address -fsanitize=undefined \
 			  -fno-sanitize-recover=all	-fsanitize=float-divide-by-zero \

@@ -6,7 +6,7 @@
 /*   By: angassin <angassin@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 10:19:32 by angassin          #+#    #+#             */
-/*   Updated: 2023/05/03 08:34:58 by angassin         ###   ########.fr       */
+/*   Updated: 2023/08/09 15:06:24 by angassin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	infile_open(char *file)
 	int	fd;
 
 	fd = -1;
-	fd = open(file, O_RDONLY, 0444);
+	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		error_exit(file);
 	return (fd);
